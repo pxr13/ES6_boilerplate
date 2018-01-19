@@ -10,13 +10,13 @@ var gutil = require('gulp-util');
 
 // Lets bring es6 to es5 with this.
 // Babel - converts ES6 code to ES5 - however it doesn't handle imports.
-// Browserify - crawls your code for dependencies and packages them up 
+// Browserify - crawls your code for dependencies and packages them up
 // into one file. can have plugins.
-// Babelify - a babel plugin for browserify, to make browserify 
+// Babelify - a babel plugin for browserify, to make browserify
 // handle es6 including imports.
 gulp.task('es6', function() {
 	browserify({
-    	entries: './app.js',
+    	entries: './app/main.js',
     	debug: true
   	})
     .transform(babelify)
@@ -30,5 +30,5 @@ gulp.task('es6', function() {
 gulp.task('watch',function() {
 	gulp.watch('**/*.js',['es6'])
 });
- 
+
 gulp.task('default', ['watch']);
